@@ -29,3 +29,40 @@ Notes:
 	#useful tailwind plugins
 	pnpm install --save-dev @tailwindcss/aspect-ratio @tailwindcss/forms @tailwindcss/line-clamp @tailwindcss/typography
 ```
+
+### connect local repo to remote and sync
+
+If you want to use github, you'll need a personal access token:
+> https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
+
+Without a token, you won't be able to push changes via the ``git push`` command.
+
+
+```bash
+    git remote add origin https://<USER>:<TOKEN>@github.com/<user>/<repo-name>.git
+
+    #i think this is only needed if branch isn't already called "main"
+    #keeping for reference
+    git branch -M main
+
+    git push -u origin main
+```
+
+You can always add the user/token later. To change the origin url:
+
+```bash
+	git remote remove origin
+```
+
+To see if "origin" is set, use:
+```bash
+	git config --list
+```
+and look for ``remote.origin.url=...`` and ``remote.origin.fetch=...``
+
+
+
+
+
+
+
